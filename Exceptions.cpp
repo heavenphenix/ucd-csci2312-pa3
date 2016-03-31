@@ -4,16 +4,18 @@
 // Exceptions.cpp
 //
 
-#include "Exceptions.h"
 #include <cassert>
 #include <sstream>
+
+#include "Exceptions.h"
 #include "Cluster.h"
+
 using namespace std;
 namespace Clustering {
     OutOfBoundsEx::OutOfBoundsEx(unsigned int c, int r) {
         this -> __current = c;
         this -> __rhs = r;
-        __name = "OutOfBoundsEx: ";
+        __name = "Out Of Bounds Ex: ";
     }
     unsigned int OutOfBoundsEx::getCurrent() const{
         return this -> __current;
@@ -42,10 +44,10 @@ namespace Clustering {
         return this -> __name;
     }
     ostream &operator<<(ostream &os, const DimensionalityMismatchEx &ex){
-        os << "DimenstionalityMisMatchEx" << " (current= " << ex.__current << "," << "rhs = " << ex.__rhs << ')';
+        os << "Dimensionality MisMatch Ex" << " ( current = " << ex.__current << "," << "rhs = " << ex.__rhs << ')';
     }
     ZeroClustersEx::ZeroClustersEx(){
-        __name = "ZeroClustersEx: ";
+        __name = "Zero Clusters Ex: ";
     }
     string ZeroClustersEx::getName() const{
         return this -> __name;
@@ -64,11 +66,11 @@ namespace Clustering {
         return this -> __name;
     }
     ostream &operator<<(ostream &os, const DataFileOpenEx &ex){
-        os << ex.getName() << ", filename is " << ex.getFilename();
+        os << ex.getName() << ", file name is " << ex.getFilename();
         return os;
     }
     ZeroDimensionsEx::ZeroDimensionsEx(){
-        __name = "ZeroDimensionsEx: ";
+        __name = "Zero Dimensions Ex: ";
     }
     string ZeroDimensionsEx::getName() const {
         return this -> __name;
@@ -78,7 +80,7 @@ namespace Clustering {
         return os;
     }
     EmptyClusterEx::EmptyClusterEx(){
-        __name = "EmptyClusterEx: ";
+        __name = "Empty Cluster Ex: ";
     }
     string EmptyClusterEx::getName() const {
         return this -> __name;
